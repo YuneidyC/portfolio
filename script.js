@@ -55,13 +55,39 @@ function addProjects() {
     ];
     
     for(let i = 0; i <= projectArray.length - 1; i++) {
-        let project = document.createElement('li');
+        const project = document.createElement('li');
         projects.appendChild(project);
         project.classList = 'project__list__item';
 
+        const projectInfo = document.createElement('div');
+        project.appendChild(projectInfo);
+        projectInfo.classList = 'project__list__item__info';
+
+        const shadowContainer = document.createElement('div');
+        projectInfo.appendChild(shadowContainer);
+
+        const projectName = document.createElement('p');
+        shadowContainer.appendChild(projectName);
+
+        const text = document.createTextNode(projectArray[i].alt);
+        projectName.appendChild(text);
+
         let image = document.createElement('img');
-        project.appendChild(image);
+        projectInfo.appendChild(image);
         image.src = projectArray[i].image;
         image.alt = projectArray[i].alt;
+    }
+}
+
+function createContainer(parent, type = null, className = null, text = null, src = null, alt = null) {
+    const elementParent = document.getElementsByClassName(parent)[0];
+    const element = document.createElement(type);
+    elementParent.appendChild(element);
+    if (className !== null) {
+        element.classList = className;
+    }
+    if (text !== null) {
+        const text = document.createTextNode(projectArray[i].alt);
+        element.appendChild(text);
     }
 }

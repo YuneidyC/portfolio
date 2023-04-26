@@ -2,9 +2,9 @@ addSocialMedia();
 
 function addSocialMedia() {
     const arraySocialMedia = [
-        {image: './assets/icons/linkedin.png', link: 'https://ie.linkedin.com/in/yuneidyc'},
-        {image: './assets/icons/github.svg', link: 'https://github.com/YuneidyC'},
-        {image: './assets/icons/gmail.png', link: ''}
+        {image: './assets/icons/linkedin.png', link: 'https://ie.linkedin.com/in/yuneidyc', alt: 'linkedin'},
+        {image: './assets/icons/github.svg', link: 'https://github.com/YuneidyC', alt: 'github'},
+        {image: './assets/icons/gmail.png', link: '', alt: 'gmail'}
     ];
 
     const nav = document.getElementsByClassName('nav')[0];
@@ -21,13 +21,13 @@ function addSocialMedia() {
         } else {
             aLink.href = arraySocialMedia[i].link;
         }
-
         aLink.target = '_blank';
         aLink.classList = 'nav__social-media__link';
 
         const image = document.createElement('img');
         aLink.appendChild(image);
         image.src = arraySocialMedia[i].image;
+        image.alt = arraySocialMedia[i].alt;
         image.classList = 'nav__social-media__img';
     }
 }

@@ -1,35 +1,31 @@
-addSocialMedia();
+addSocialMedia("transition-left", "transition__social-media__left", "transition transition__social-media__link__left");
+addSocialMedia("transition-bottom", "transition__social-media__bottom", "bottom transition__social-media__link__bottom");
 
-function addSocialMedia() {
+function addSocialMedia(elementClass, classChild, classListLink) {
     const arraySocialMedia = [
         {image: './assets/icons/linkedin.png', link: 'https://ie.linkedin.com/in/yuneidyc', alt: 'linkedin'},
-        {image: './assets/icons/github.svg', link: 'https://github.com/YuneidyC', alt: 'github'},
-        {image: './assets/icons/gmail.png', link: '', alt: 'gmail'}
+        {image: './assets/icons/github.png', link: 'https://github.com/YuneidyC', alt: 'github'},
+        {image: './assets/icons/gmail.png', link: 'mailto:yuneidycastillo25@gmail.com', alt: 'gmail'}
     ];
 
-    const nav = document.getElementsByClassName('nav')[0];
-    const socialMedia = document.createElement('div');
-    socialMedia.classList = 'nav__social-media';
-    nav.appendChild(socialMedia);
+    const element = document.getElementsByClassName(elementClass)[0];
+        const socialMedia = document.createElement('div');
+        socialMedia.classList = classChild;
+        element.appendChild(socialMedia);
+            for (let i = 0; i <= arraySocialMedia.length - 1; i++) {
+                const aLink = document.createElement('a');
+                socialMedia.appendChild(aLink);
 
-    for (let i = 0; i <= arraySocialMedia.length - 1; i++) {
-        const aLink = document.createElement('a');
-        socialMedia.appendChild(aLink);
-
-        if(arraySocialMedia[i].image === './assets/icons/gmail.png') {
-            aLink.href = "mailto:yuneidycastillo25@gmail.com";
-        } else {
-            aLink.href = arraySocialMedia[i].link;
-        }
-        aLink.target = '_blank';
-        aLink.classList = 'nav__social-media__link';
-
-        const image = document.createElement('img');
-        aLink.appendChild(image);
-        image.src = arraySocialMedia[i].image;
-        image.alt = arraySocialMedia[i].alt;
-        image.classList = 'nav__social-media__img';
-    }
+                aLink.href = arraySocialMedia[i].link;
+                aLink.target = '_blank';
+                aLink.classList = classListLink;
+        
+                const image = document.createElement('img');
+                aLink.appendChild(image);
+                image.src = arraySocialMedia[i].image;
+                image.alt = arraySocialMedia[i].alt;
+                image.classList = 'transition__social-media__img';
+            }
 }
 
 addProjects();
@@ -76,18 +72,5 @@ function addProjects() {
         projectInfo.appendChild(image);
         image.src = projectArray[i].image;
         image.alt = projectArray[i].alt;
-    }
-}
-
-function createContainer(parent, type = null, className = null, text = null, src = null, alt = null) {
-    const elementParent = document.getElementsByClassName(parent)[0];
-    const element = document.createElement(type);
-    elementParent.appendChild(element);
-    if (className !== null) {
-        element.classList = className;
-    }
-    if (text !== null) {
-        const text = document.createTextNode(projectArray[i].alt);
-        element.appendChild(text);
     }
 }

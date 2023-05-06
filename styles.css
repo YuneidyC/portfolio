@@ -85,9 +85,9 @@ header {
     display: grid;
     grid-template-rows: 40vh auto;
     grid-template-columns: 100%;
-    width: calc(100% - 45px);
-    margin-left: 45px;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    padding-left: 45px;
 }
 
 .about-me__container {
@@ -103,7 +103,7 @@ header {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 100%;
     height: 100%;
-    max-width: 1400px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -112,12 +112,20 @@ header {
     height: 250px;
     justify-self: center;
     align-self: center;
-    background-image: url('./assets/image/pexels-taryn-elliott-4426354.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 50%;
+    display: block;
     grid-row: 1 / 2;
     grid-column: 1 / 2;
+}
+
+.about-me__information__picture > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 34px 5px rgba(0,0,0,0.52);
+    -webkit-box-shadow: 0px 0px 34px 5px rgba(0,0,0,0.52);
+    -moz-box-shadow: 0px 0px 34px 5px rgba(0,0,0,0.52);
 }
 
 .about-me__details {
@@ -146,7 +154,7 @@ header {
     font-size: 18px;
     font-weight: normal;
     width: 90%;
-    text-align: left;
+    text-align: center;
     padding-left: 50px;
 }
 
@@ -161,7 +169,7 @@ header {
 .project__container {
     width: 90%;
     max-width: 1022px;
-    margin: 0 auto;
+    margin: 0 50px;
     height: 100%;
 }
 
@@ -189,11 +197,27 @@ header {
 }
 
 .project__list__item {
+    display: block;
     width: 300px;
     height: 235px;
     margin: 15px;
     list-style: none;
     position: relative;
+    opacity: 0.7;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 0px 32px 0px rgba(31, 31, 31, 0.75);
+    -webkit-box-shadow: 0px 0px 32px 0px rgba(31, 31, 31, 0.75);
+    -moz-box-shadow: 0px 0px 32px 0px rgba(31, 31, 31, 0.75);
+}
+
+.project__list__item:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.1) rotate(0.01deg);
+    transform: scale(1.1) rotate(0.01deg);
+    box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.75);
 }
 
 .project__list__item__info {
@@ -206,7 +230,6 @@ header {
     height: 50%;
     position: absolute;
     top: 50%;
-    z-index: 2;
     box-shadow: rgba(5, 5, 5, 0.53) 0px -110px 40px -30px inset;
     border-radius: 0 0 10px 10px;
 }
@@ -217,7 +240,6 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
-    z-index: 0;
 }
 
 .project__list__item__info > div > p {
@@ -229,3 +251,15 @@ header {
     margin-left: 10px;
 }
 
+@media (max-width: 750px) {
+    .about-me {
+        grid-template-rows: 55vh auto;
+        padding-left: 0;
+    }
+    .about-me__information {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: 100%;
+        height: 100%;
+        padding: 0;
+    }
+}

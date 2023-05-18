@@ -41,36 +41,73 @@ function addProjects() {
     projects.classList = 'project__list__items';
 
     const projectArray = [
-        {image: './assets/image/todo.PNG', link: 'https://github.com/YuneidyC', alt: `Todo's app`},
-        {image: './assets/image/weather.PNG', link: 'https://github.com/YuneidyC', alt: 'Weather'},
-        {image: './assets/image/timer.PNG', link: 'https://github.com/YuneidyC', alt: 'Timer'},
-        {image: './assets/image/batatabit.PNG', link: 'https://github.com/YuneidyC', alt: 'Batatabit'},
-        {image: './assets/image/blog.PNG', link: 'https://github.com/YuneidyC', alt: 'Blog page'},
-        {image: './assets/image/animationLand.PNG', link: 'https://github.com/YuneidyC', alt: 'Animation Land'},
-        {image: './assets/image/restaurantMenu.PNG', link: 'https://github.com/YuneidyC', alt: 'Restaurant page'},
+        {image: './assets/image/todo.PNG', source: 'https://github.com/YuneidyC/todo-app', test: 'https://yuneidyc.github.io/todo-app/', alt: `Todo's app`},
+        {image: './assets/image/weather.PNG', source: 'https://github.com/YuneidyC/weatherApp', alt: 'Weather'},
+        {image: './assets/image/timer.PNG', source: 'https://github.com/YuneidyC/Timer', test: 'https://yuneidyc.github.io/Timer/', alt: 'Timer'},
+        {image: './assets/image/batatabit.PNG', source: 'https://github.com/YuneidyC/Batatabit', test: 'https://yuneidyc.github.io/Batatabit/', alt: 'Batatabit'},
+        {image: './assets/image/blog.PNG', source: 'https://github.com/YuneidyC/Portfolio-Blog', test:'https://yuneidyc.github.io/Portfolio-Blog/', alt: 'Blog page'},
+        {image: './assets/image/animationLand.PNG', source: 'https://github.com/YuneidyC/Animationland', test: 'https://yuneidyc.github.io/Animationland/', alt: 'Animation Land'},
+        {image: './assets/image/restaurantMenu.PNG', source: 'https://github.com/YuneidyC/RestaurantMenu', test: 'https://yuneidyc.github.io/RestaurantMenu/', alt: 'Restaurant page'},
     ];
     
-    for(let i = 0; i <= projectArray.length - 1; i++) {
+    for (let i = 0; i <= projectArray.length - 1; i++) {
         const project = document.createElement('li');
         projects.appendChild(project);
         project.classList = 'project__list__item';
 
-        const projectInfo = document.createElement('div');
-        project.appendChild(projectInfo);
-        projectInfo.classList = 'project__list__item__info';
+        const card = document.createElement('div');
+        project.appendChild(card);
+        card.classList = 'card';
 
-        const shadowContainer = document.createElement('div');
-        projectInfo.appendChild(shadowContainer);
+        let img = document.createElement('img');
+        card.appendChild(img);
+        img.src = projectArray[i].image;
+        img.alt = projectArray[i].alt;
+        img.classList = 'card__background';
 
-        const projectName = document.createElement('p');
-        shadowContainer.appendChild(projectName);
+        const cardContent = document.createElement('div');
+        card.appendChild(cardContent);
+        cardContent.classList = 'card__content | flow';
 
+        const cardContentContainer = document.createElement('div');
+        cardContent.appendChild(cardContentContainer);
+        cardContentContainer.classList = 'card__content--container | flow';
+
+        const h2 = document.createElement('h2');
         const text = document.createTextNode(projectArray[i].alt);
-        projectName.appendChild(text);
+        cardContentContainer.appendChild(h2);
+        h2.appendChild(text);
+        h2.classList = 'card__title';
 
-        let image = document.createElement('img');
-        projectInfo.appendChild(image);
-        image.src = projectArray[i].image;
-        image.alt = projectArray[i].alt;
+        // Second child
+        const divContainerButton = document.createElement('div');
+        cardContent.appendChild(divContainerButton);
+        divContainerButton.classList = 'card__content--button';
+
+        if (projectArray[i].test !== undefined) {
+            const button = document.createElement('button');
+            divContainerButton.appendChild(button);
+            button.classList = 'card__button';
+            button.addEventListener('click', function(){
+                location = projectArray[i].test;
+            });
+
+            const buttonImgTest = document.createElement('img');
+            button.appendChild(buttonImgTest);
+            buttonImgTest.src = './assets/icons/eye.PNG';
+            buttonImgTest.alt = 'test';
+        }
+
+        const button = document.createElement('button');
+        divContainerButton.appendChild(button);
+        button.classList = 'card__button';
+        button.addEventListener('click', function(){
+            location = projectArray[i].source;
+        });
+
+        const buttonImgSource = document.createElement('img');
+        button.appendChild(buttonImgSource);
+        buttonImgSource.src = './assets/icons/source.PNG';
+        buttonImgSource.alt = 'source';
     }
 }

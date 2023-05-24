@@ -36,11 +36,11 @@ function addProjects() {
 
     for (let i = 0; i <= projectArray.length - 1; i++) {
         const project = createElement('li', projects, 'project__list__item');
-        const card = createElement('div', project, 'card');
+        const card = createElement('div', project, 'project__list__item__card');
 
-        createElement('img', card, 'card__background', projectArray[i].image, projectArray[i].alt);
+        createElement('img', card, 'project__list__item__card__background', projectArray[i].image, projectArray[i].alt);
 
-        const cardContent = createElement('div', card, 'card__content | flow');
+        const cardContent = createElement('div', card, 'project__list__item__card__content | flow');
         const cardContentContainer = createElement('div', cardContent, 'card__content--container | flow');
 
         createElement('h2', cardContentContainer, 'card__title', null, null, null, null, projectArray[i].alt);
@@ -49,19 +49,15 @@ function addProjects() {
 
         if (projectArray[i].test !== undefined) {
             const button = createElement('button', divContainerButton, 'card__button');
-            button.addEventListener('click', function () {
-                location = projectArray[i].test;
-            });
 
-            createElement('img', button, null, './assets/icons/eye.png', 'test');
+            const testLink = createElement('a', button, null, null, null, projectArray[i].test, '_blank', null);
+            createElement('img', testLink, null, './assets/icons/eye.png', 'test');
         }
-
+        
         const button = createElement('button', divContainerButton, 'card__button');
-        button.addEventListener('click', function () {
-            location = projectArray[i].source;
-        });
-
-        createElement('img', button, null, './assets/icons/source.png', 'source');
+        
+        const sourceLink = createElement('a', button, null, null, null, projectArray[i].source, '_blank', null);
+        createElement('img', sourceLink, null, './assets/icons/source.png', 'source');
     }
 }
 
@@ -73,6 +69,9 @@ function createElement(elementType, parent, className = null, src = null, alt = 
     if (elementType === 'img') {
         element.src = src;
         element.alt = alt;
+        if (className === null) {
+            return element;
+        }
         return;
     }
 

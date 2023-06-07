@@ -517,7 +517,7 @@ h2 {
     .about-me__details {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
-        margin-top: 15px;
+        margin: 15px 0;
     }
 
     .about-me__information__picture {

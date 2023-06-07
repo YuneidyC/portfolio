@@ -1,3 +1,13 @@
+let arrayTech2 = [
+    { tag: '#All' },
+    { tag: '#React', image: './assets/icons/react.svg' },
+    { tag: '#Webpack', image: './assets/icons/webpack.svg' },
+    { tag: '#JavaScript', image: './assets/icons/js.svg' },
+    { tag: '#CSS', image: './assets/icons/css.svg' },
+    { tag: '#HTML', image: './assets/icons/html.svg' },
+    { tag: '#Git', image: './assets/icons/git.svg' }
+];
+
 addSocialMedia("transition-left", "transition__social-media__left", "transition transition__social-media__link__left");
 addSocialMedia("transition-bottom", "transition__social-media__bottom", "bottom transition__social-media__link__bottom");
 
@@ -21,15 +31,6 @@ createFilterContainer();
 
 function createFilterContainer() {
     const filterContainer = document.getElementsByClassName('project__filter')[0];
-    const arrayTech2 = [ 
-        { tag: '#All' },
-        { tag: '#React', image: './assets/icons/react.svg'},
-        { tag: '#Webpack', image: './assets/icons/webpack.svg'}, 
-        { tag: '#JavaScript', image: './assets/icons/js.svg'},
-        { tag: '#CSS', image: './assets/icons/css.svg'},
-        { tag: '#HTML', image: './assets/icons/html.svg'},
-        { tag: '#Git', image: './assets/icons/git.svg'}
-    ];
     for (let i = 0; i < arrayTech2.length; i++) {
         let button;
         if (i === 0) {
@@ -39,7 +40,13 @@ function createFilterContainer() {
         } else {
             button = createElement('button', filterContainer, 'btn', arrayTech2[i].image, null, null, null, arrayTech2[i].tag);
         }
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
+            document.getElementsByClassName('project__list')[0].animate([
+                { top: '100px', bottom: '0px' },
+                { top: '0px' }
+            ], {
+                duration: 500
+            });
             filterSelection(arrayTech2[i].tag.replace('#', ''));
         });
     }
@@ -118,6 +125,11 @@ function addProjects() {
 
         createElement('h2', cardContentContainer, 'card__title', null, null, null, null, projectArray[i].alt);
 
+        const projectTechContainer = createElement('div', cardContent, 'project__list__item__card__container');
+        const projectTech = createElement('div', projectTechContainer, 'project__list__item__card__tasks');
+
+        addTechProject(project, projectTech);
+
         const divContainerButton = createElement('div', cardContent, 'card__content--button');
 
         if (projectArray[i].test !== undefined) {
@@ -172,4 +184,20 @@ function createElement(elementType, parent, className = null, src = null, alt = 
     }
 
     return element;
+}
+
+function addTechProject(element, techs) {
+    const techElement = element.className.split(' ');
+
+    for (let i = 0; i <= techElement.length - 1; i++) {
+        if (arrayTech2.some(exist => exist.tag === '#' + techElement[i])) {
+            const techsContainer = createElement('div', techs);
+            addTechImage(techsContainer, techElement[i]);
+        }
+    }
+}
+
+function addTechImage(element, tech) {
+    const srcImage = arrayTech2.find(({ tag }) => tag === '#' + tech);
+    createElement('img', element, null, srcImage.image, srcImage.tag.replace('#', ''));
 }

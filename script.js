@@ -215,3 +215,24 @@ function addTechImage(element, tech) {
         wordflick();
     });
 }
+
+function reveal() {
+    let reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        let elementTop = reveals[i].getBoundingClientRect().top;
+        let elementHeight = reveals[i].getBoundingClientRect().bottom - elementTop;
+        let elementVisibleHeight = elementHeight - Math.abs(elementTop);
+
+        const showThreshold = Math.min(Math.max(0.6, 0), 1);
+        const hideThreshold = 1 - showThreshold;
+
+        if (elementVisibleHeight > elementHeight * showThreshold) {
+            reveals[i].classList.add("active");
+        } else if (elementVisibleHeight < elementHeight * hideThreshold) {
+            reveals[i].classList.remove("active");
+        }
+    }
+}
+
+window.addEventListener("DMContentLoaded", reveal());
+window.addEventListener("scroll", reveal);

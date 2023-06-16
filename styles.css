@@ -202,6 +202,66 @@ h2 {
     text-shadow: 3px 3px black;
 }
 
+.about-me__details__profession {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    justify-self: center;
+    align-self: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--brand-color) 0, var(--white) 10%, var(--brand-color) 20%);
+    background-position: 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    -webkit-text-size-adjust: none;
+    text-decoration: none;
+    white-space: nowrap;
+    color: transparent;
+}
+
+@-moz-keyframes shine {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 463px;
+    }
+}
+
+@-webkit-keyframes shine {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 463px;
+    }
+}
+
+@-o-keyframes shine {
+    to {
+        background-position: 0;
+    }
+
+    from {
+        background-position: 463px;
+    }
+}
+
+@keyframes shine {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 463px;
+    }
+}
+
 .about-me__details__information {
     display: flex;
     font-size: 18px;
@@ -562,7 +622,6 @@ h2 {
 .show {
     display: block;
 }
-
 
 .about-me__container__first-squares,
 .about-me__container__second-squares,

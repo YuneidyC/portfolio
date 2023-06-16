@@ -34,19 +34,13 @@ function createFilterContainer() {
     for (let i = 0; i < arrayTech2.length; i++) {
         let button;
         if (i === 0) {
-            button = createElement('button', filterContainer, 'btn active');
+            button = createElement('button', filterContainer, 'btn btn-active');
             const textElement = document.createTextNode(arrayTech2[i].tag);
             button.appendChild(textElement);
         } else {
             button = createElement('button', filterContainer, 'btn', arrayTech2[i].image, null, null, null, arrayTech2[i].tag);
         }
         button.addEventListener('click', function () {
-            document.getElementsByClassName('project__list')[0].animate([
-                { top: '100px', bottom: '0px' },
-                { top: '0px' }
-            ], {
-                duration: 500
-            });
             filterSelection(arrayTech2[i].tag.replace('#', ''));
         });
     }
@@ -56,9 +50,9 @@ function createFilterContainer() {
     let btns = document.getElementsByClassName("btn");
     for (let i = 0; i < btns.length; i++) {
         btns[i].addEventListener("click", function () {
-            let current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
+            let current = document.getElementsByClassName("btn-active");
+            current[0].className = current[0].className.replace(" btn-active", "");
+            this.className += " btn-active";
         });
     }
 }
@@ -200,4 +194,24 @@ function addTechProject(element, techs) {
 function addTechImage(element, tech) {
     const srcImage = arrayTech2.find(({ tag }) => tag === '#' + tech);
     createElement('img', element, null, srcImage.image, srcImage.tag.replace('#', ''));
+}
+
+{
+    var wordflick = function () {
+        let offset = 0;
+        const word = `I'm a self-taught Software developer currently focusing on Front-End. I want to get real world experience in Front-End while I keep expanding on my Back-End knowledge on the side. My ambition is to slowly transition into a Full-Stack role by learning more about Back-End, DevOps, Databases and Cloud technologies, among others.`;
+        // This arrow function will be appending each of the letters to the text after a delay
+        let intervalVar = setInterval(function () {
+            let part = word.substr(0, offset);
+            offset++;
+            document.getElementsByClassName("about-me__details__information")[0].innerText = part;
+            if (part.length >= word.length) {
+                window.clearInterval(intervalVar);
+            }
+        }, 15);
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        wordflick();
+    });
 }

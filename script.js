@@ -236,3 +236,15 @@ function reveal() {
 
 window.addEventListener("DMContentLoaded", reveal());
 window.addEventListener("scroll", reveal);
+
+createSquares();
+
+function createSquares() {
+    const firstSquares = document.getElementsByClassName('about-me__container')[0];
+    createElement('div', firstSquares, 'about-me__container__first-squares');
+    createElement('div', firstSquares, 'about-me__container__second-squares');
+
+    const secondSquares = document.getElementsByTagName('main')[0];
+    createElement('div', secondSquares, 'main__third-squares');
+    createElement('div', secondSquares, 'main__fourth-squares');
+}

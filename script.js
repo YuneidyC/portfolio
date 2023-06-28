@@ -223,7 +223,7 @@ function reveal() {
         let elementHeight = reveals[i].getBoundingClientRect().bottom - elementTop;
         let elementVisibleHeight = elementHeight - Math.abs(elementTop);
 
-        const showThreshold = Math.min(Math.max(0.6, 0), 1);
+        const showThreshold = Math.min(Math.max(0.4, 0), 1);
         const hideThreshold = 1 - showThreshold;
 
         if (elementVisibleHeight > elementHeight * showThreshold) {

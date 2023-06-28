@@ -129,14 +129,14 @@ function addProjects() {
         if (projectArray[i].test !== undefined) {
             const button = createElement('button', divContainerButton, 'card__button');
 
-            const testLink = createElement('a', button, null, null, null, projectArray[i].test, '_blank');
-            createElement('img', testLink, null, './assets/icons/eye.png', 'test');
+            createElement('img', button, null, './assets/icons/eye.png', 'test');
+            createElement('a', button, null, null, null, projectArray[i].test, '_blank', 'Test');
         }
 
         const button = createElement('button', divContainerButton, 'card__button');
 
-        const sourceLink = createElement('a', button, null, null, null, projectArray[i].source, '_blank');
-        createElement('img', sourceLink, null, './assets/icons/source.png', 'source');
+        createElement('a', button, null, null, null, projectArray[i].source, '_blank', 'Source');
+        createElement('img', button, null, './assets/icons/source.png', 'source');
     }
 }
 
@@ -159,10 +159,10 @@ function createElement(elementType, parent, className = null, src = null, alt = 
         element.target = target;
     }
 
-    if (elementType === 'h2') {
+    if (elementType === 'h2' || (elementType === 'a' && text !== null)) {
         const textElement = document.createTextNode(text);
         element.appendChild(textElement);
-        return;
+        return
     }
 
     if (elementType === 'p') {

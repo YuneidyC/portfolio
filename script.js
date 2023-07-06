@@ -15,15 +15,15 @@ function addSocialMedia(elementClass, classChild, classListLink) {
     const arraySocialMedia = [
         { image: './assets/icons/linkedin.png', link: 'https://ie.linkedin.com/in/yuneidyc', alt: 'linkedin' },
         { image: './assets/icons/github.png', link: 'https://github.com/YuneidyC', alt: 'github' },
-        { image: './assets/icons/gmail.png', link: 'mailto:yuneidycastillo25@gmail.com', alt: 'gmail' },
+        { image: './assets/icons/gmailClean.svg', link: 'mailto:yuneidycastillo25@gmail.com', alt: 'gmail' },
     ];
 
     const element = document.getElementsByClassName(elementClass)[0];
     const socialMedia = createElement('div', element, classChild);
 
     for (let i = 0; i <= arraySocialMedia.length - 1; i++) {
-        const aLink = createElement('a', socialMedia, classListLink, null, null, arraySocialMedia[i].link, '_blank');
-        createElement('img', aLink, 'transition__social-media__img', arraySocialMedia[i].image, arraySocialMedia[i].alt);
+        const aLink = createElement('a', socialMedia, classListLink + ' ' + i, null, null, arraySocialMedia[i].link, '_blank');
+        createElement('img', aLink, `transition__social-media__img ${arraySocialMedia[i].alt} `, arraySocialMedia[i].image, arraySocialMedia[i].alt);
     }
 }
 
@@ -225,6 +225,15 @@ function reveal() {
 
         const showThreshold = Math.min(Math.max(0.4, 0), 1);
         const hideThreshold = 1 - showThreshold;
+        const firstSection = document.getElementsByClassName('about-me__information')[0].classList;
+        // let firstSectionClasses = firstSection.split(' ');
+        console.log('------');
+        console.log(elementTop);
+        console.log(elementHeight);
+
+        if (firstSection[2] === 'active' && elementTop === 816) {
+            wordflick();
+        }
 
         if (elementVisibleHeight > elementHeight * showThreshold) {
             reveals[i].classList.add("active");

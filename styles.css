@@ -80,21 +80,31 @@ h2 {
 
 .transition__social-media__left {
     width: 100%;
-    height: auto;
+    height: 100%;
     position: absolute;
     bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .transition__social-media__link__left {
     margin: 10px 0;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     cursor: pointer;
     position: relative;
+    border-radius: 90%;
+    box-shadow: 0 0 2px 2px rgba(36, 36, 36, 0.959);
+    /* transform: scale(1.2) rotate(0deg); */
+}
+
+.transition__social-media__link__left:hover {
+    -webkit-transform: scale(1.3) ;
+    transform: scale(1.3) ;
+    box-shadow: 0 0 4px 2px rgba(44, 44, 44, 0.808);
 }
 
 .transition__social-media__bottom {
@@ -114,11 +124,13 @@ h2 {
 .transition__social-media__img {
     width: 100%;
     height: 100%;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3) rotate(0deg);
 }
 
-.transition__social-media__img:hover {
-    -webkit-transform: scale(1.1) rotate(0.01deg);
-    transform: scale(1.1) rotate(0.01deg);
+.gmail {
+    border-radius: 50%;
+    box-shadow: 0 0 1px 0.5px rgba(54, 54, 54, 0.959);
 }
 
 .about-me {
@@ -277,7 +289,7 @@ h2 {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     background-color: var(--background);
-    height: 100%;
+    height: auto;
     width: 100%;
     margin: 0 auto;
 }
@@ -693,13 +705,13 @@ h2 {
 }
 
 .main__third-squares {
-    left: -146px;
+    left: -168px;
     bottom: -100px;
 }
 
 .main__fourth-squares {
-    left: -150px;
-    bottom: -119px;
+    left: -170px;
+    bottom: -150px;
 }
 
 @keyframes move-out {

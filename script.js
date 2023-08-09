@@ -196,51 +196,56 @@ function addTechImage(element, tech) {
   createElement('img', element, null, srcImage.image, srcImage.tag.replace('#', ''));
 }
 
-{
-  var wordflick = function () {
-    let offset = 0;
-    const word = `I'm a self-taught Software developer currently focusing on Front-End. I want to get real world experience in Front-End while I keep expanding on my Back-End knowledge on the side. My ambition is to slowly transition into a Full-Stack role by learning more about Back-End, DevOps, Databases and Cloud technologies, among others.`;
-    // This arrow function will be appending each of the letters to the text after a delay
-    let intervalVar = setInterval(function () {
-      let part = word.substr(0, offset);
-      offset++;
-      document.getElementsByClassName("about-me__details__information")[0].innerText = part;
-      if (part.length >= word.length) {
-        window.clearInterval(intervalVar);
-      }
-    }, 15);
-  };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    wordflick();
-  });
+const wordflick = function () {
+  let offset = 0;
+  const word = `I'm a self-taught Software developer currently focusing on Front-End. I want to get real world experience in Front-End while I keep expanding on my Back-End knowledge on the side. My ambition is to slowly transition into a Full-Stack role by learning more about Back-End, DevOps, Databases and Cloud technologies, among others.`;
+  // This arrow function will be appending each of the letters to the text after a delay
+  return window.setInterval(function () {
+    let part = word.substr(0, offset);
+    offset++;
+    document.getElementsByClassName("about-me__details__information")[0].innerText = part;
+    if (part.length >= word.length) {
+      window.clearInterval();
+    }
+  }, 15);
+};
+
+let intervalWord = wordflick();
+
+function resetInfoTextAnimation() {
+  clearInterval(intervalWord);
+  document.getElementsByClassName("about-me__details__information")[0].innerText = " ";
+  intervalWord = wordflick();
 }
 
 function reveal() {
   let reveals = document.querySelectorAll(".reveal");
+
+  const showThreshold = Math.min(Math.max(0.9, 0), 1);
+  const hideThreshold = 1 - showThreshold;
+  const firstSection = document.getElementById('about-me-section');
+  // let currentScrollRatio = Math.abs(elemTop) / totalHeight;
+
   for (let i = 0; i < reveals.length; i++) {
     let elementTop = reveals[i].getBoundingClientRect().top;
     let elementHeight = reveals[i].getBoundingClientRect().bottom - elementTop;
     let elementVisibleHeight = elementHeight - Math.abs(elementTop);
 
-    const showThreshold = Math.min(Math.max(0.4, 0), 1);
-    const hideThreshold = 1 - showThreshold;
-    const firstSection = document.getElementsByClassName('about-me__information')[0].classList;
-
-    if (firstSection[2] === 'active' && elementTop === 816) {
-      wordflick();
-    }
-
     if (elementVisibleHeight > elementHeight * showThreshold) {
+      let wasActive = reveals[i].classList.contains("active");
       reveals[i].classList.add("active");
+      if (!wasActive && firstSection === reveals[i]) {
+        resetInfoTextAnimation();
+      }
     } else if (elementVisibleHeight < elementHeight * hideThreshold) {
       reveals[i].classList.remove("active");
     }
   }
 }
 
-window.addEventListener("DMContentLoaded", reveal());
-window.addEventListener("scroll", reveal);
+window.addEventListener("DMContentLoaded", reveal);
+window.addEventListener("scrollend", reveal);
 
 {
   document.addEventListener('mousemove', myMove);

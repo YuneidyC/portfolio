@@ -615,6 +615,10 @@ h2 {
     border-radius: 10px;
 }
 
+.noscroll {
+    overflow-y: hidden;
+}
+
 .project__list__item {
     display: none;
     width: 300px;

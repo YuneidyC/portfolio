@@ -96,7 +96,7 @@ addProjects();
 function addProjects() {
   const projectList = document.getElementsByClassName('project__list')[0];
   const projectContainer = createElement('div', projectList, 'project__list__container');
-  const projects = createElement('ul', projectContainer, 'project__list__items');
+  const projects = createElement('ul', projectContainer, 'project__list__items noscroll');
 
   const projectArray = [
     { image: './assets/image/todo.PNG', source: 'https://github.com/YuneidyC/todo-app', test: 'https://yuneidyc.github.io/todo-app/', alt: `Todo's app`, className: 'project__list__item React JavaScript HTML CSS Git show' },
@@ -220,28 +220,51 @@ function resetInfoTextAnimation() {
 }
 
 function reveal() {
-  let reveals = document.querySelectorAll(".reveal");
-
-  const showThreshold = Math.min(Math.max(0.9, 0), 1);
-  const hideThreshold = 1 - showThreshold;
   const firstSection = document.getElementById('about-me-section');
-  // let currentScrollRatio = Math.abs(elemTop) / totalHeight;
+  let currentScrollRatio = Math.abs(firstSection.getBoundingClientRect().top) / window.innerHeight;
+  
+  updateElementsVisibility(currentScrollRatio);
+}
 
-  for (let i = 0; i < reveals.length; i++) {
-    let elementTop = reveals[i].getBoundingClientRect().top;
-    let elementHeight = reveals[i].getBoundingClientRect().bottom - elementTop;
-    let elementVisibleHeight = elementHeight - Math.abs(elementTop);
+const visibilityData = [
+  { name: "about-me-section", minScroll: 0, maxScroll: 0.7 },
+  { name: "projects-section", minScroll: 0.4, maxScroll: 1 },
+];
 
-    if (elementVisibleHeight > elementHeight * showThreshold) {
-      let wasActive = reveals[i].classList.contains("active");
-      reveals[i].classList.add("active");
-      if (!wasActive && firstSection === reveals[i]) {
+function updateElementsVisibility(scrollRatio) {
+  let reveals = document.querySelectorAll(".reveal");
+  const projectListElement = document.getElementsByClassName('project__list__items')[0];
+
+  reveals.forEach(sectionElement => {
+    let isElementActive = sectionElement.classList.contains("active");
+    let elemVisibilityData = visibilityData.find((x) => x.name === sectionElement.id);
+
+    if (!elemVisibilityData) {
+      return;
+    }
+
+    let minScroll = elemVisibilityData.minScroll;
+    let maxScroll = elemVisibilityData.maxScroll;
+
+    if (!isElementActive && scrollRatio >= minScroll && scrollRatio <= maxScroll) {
+      sectionElement.classList.add("active");
+      if ("about-me-section" === sectionElement.id) {
         resetInfoTextAnimation();
       }
-    } else if (elementVisibleHeight < elementHeight * hideThreshold) {
-      reveals[i].classList.remove("active");
+      if ("projects-section" === sectionElement.id) {
+        if (projectListElement) {
+          projectListElement.classList.remove("noscroll");
+        }
+      }
+    } else if (isElementActive && (scrollRatio < minScroll || scrollRatio > maxScroll)) {
+      sectionElement.classList.remove("active");
+      if ("projects-section" === sectionElement.id) {
+        if (projectListElement) {
+          projectListElement.classList.add("noscroll");
+        }
+      }
     }
-  }
+  });
 }
 
 window.addEventListener("DMContentLoaded", reveal);

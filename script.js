@@ -4,9 +4,14 @@ let arrayTech2 = [
   { tag: '#Webpack', image: './assets/icons/webpack.svg' },
   { tag: '#JavaScript', image: './assets/icons/js.svg' },
   { tag: '#CSS', image: './assets/icons/css.svg' },
+  { tag: '#Sass', image: './assets/icons/sass.svg' },
   { tag: '#HTML', image: './assets/icons/html.svg' },
-  { tag: '#Git', image: './assets/icons/git.svg' }
+  { tag: '#Git', image: './assets/icons/git.svg' },
 ];
+
+window.addEventListener("beforeunload", function() {
+  window.scrollTo(0, 0);
+});
 
 addSocialMedia("transition-left", "transition__social-media__left", "transition transition__social-media__link__left");
 addSocialMedia("transition-bottom", "transition__social-media__bottom", "bottom transition__social-media__link__bottom");
@@ -106,6 +111,8 @@ function addProjects() {
     { image: './assets/image/blog.PNG', source: 'https://github.com/YuneidyC/Portfolio-Blog', test: 'https://yuneidyc.github.io/Portfolio-Blog/', alt: 'Blog page', className: 'project__list__item JavaScript HTML CSS Git show' },
     { image: './assets/image/animationLand.PNG', source: 'https://github.com/YuneidyC/Animationland', test: 'https://yuneidyc.github.io/Animationland/', alt: 'Animation Land', className: 'project__list__item JavaScript HTML CSS Git show' },
     { image: './assets/image/restaurantMenu.PNG', source: 'https://github.com/YuneidyC/RestaurantMenu', test: 'https://yuneidyc.github.io/RestaurantMenu/', alt: 'Restaurant page', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/googleClone.PNG', source: 'https://github.com/YuneidyC/GoogleClone', test: 'https://google-clone-yuneidyc.vercel.app/', alt: 'Google clone', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/ecoStore.PNG', source: 'https://github.com/YuneidyC/Eco-store', test: 'https://yuneidyc.github.io/Eco-store/', alt: 'Eco-store', className: 'project__list__item JavaScript HTML Sass Git show' },
   ];
 
   for (let i = 0; i <= projectArray.length - 1; i++) {
@@ -196,7 +203,6 @@ function addTechImage(element, tech) {
   createElement('img', element, null, srcImage.image, srcImage.tag.replace('#', ''));
 }
 
-
 const wordflick = function () {
   let offset = 0;
   const word = `I'm a self-taught Software developer currently focusing on Front-End. I want to get real world experience in Front-End while I keep expanding on my Back-End knowledge on the side. My ambition is to slowly transition into a Full-Stack role by learning more about Back-End, DevOps, Databases and Cloud technologies, among others.`;
@@ -222,7 +228,7 @@ function resetInfoTextAnimation() {
 function reveal() {
   const firstSection = document.getElementById('about-me-section');
   let currentScrollRatio = Math.abs(firstSection.getBoundingClientRect().top) / window.innerHeight;
-  
+
   updateElementsVisibility(currentScrollRatio);
 }
 
@@ -268,7 +274,7 @@ function updateElementsVisibility(scrollRatio) {
 }
 
 window.addEventListener("DMContentLoaded", reveal);
-window.addEventListener("scrollend", reveal);
+window.addEventListener("scroll", reveal);
 
 {
   document.addEventListener('mousemove', myMove);

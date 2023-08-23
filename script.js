@@ -262,7 +262,7 @@ function updateElementsVisibility(scrollRatio) {
           projectListElement.classList.remove("noscroll");
         }
       }
-    } else if (isElementActive && (scrollRatio < minScroll || scrollRatio > maxScroll)) {
+    } else if (isElementActive && (scrollRatio < minScroll || scrollRatio.toPrecision(2) > maxScroll)) {
       sectionElement.classList.remove("active");
       if ("projects-section" === sectionElement.id) {
         if (projectListElement) {

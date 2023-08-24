@@ -407,9 +407,9 @@ document.getElementsByClassName("close")[0].onclick = function() {
   return false;
 };
 
-document.addEventListener('touchstart', isMobile);
+document.addEventListener('touchstart', disableProjectCardsAnimation);
 
-function isMobile() {
+function disableProjectCardsAnimation() {
   const projects = document.getElementsByClassName('project__list__item__card__content');
   for (const element of projects) {
     element.style.pointerEvents = "none";

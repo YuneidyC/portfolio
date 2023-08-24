@@ -401,3 +401,8 @@ window.addEventListener("scroll", reveal);
     }
   }
 }
+
+document.getElementsByClassName("close")[0].onclick = function() {
+  this.parentNode.parentNode.remove();
+  return false;
+};

@@ -45,18 +45,104 @@
         position: relative;
     }
 
+    .about-me__information {
+        grid-template-rows: 300px 450px;
+        padding: 0;
+    }
+
     .about-me__information__picture {
-        width: 170px;
-        height: 170px;
+        width: 190px;
+        height: 190px;
         justify-content: center;
         align-self: center;
     }
 
-    .about-me__information__picture>img {
+    .about-me__information__picture > img {
         transform: scale(1.1);
     }
 
-    .project__list__items {
-        margin-bottom: 45px;
+    .about-me__details__information {
+        grid-template-rows: auto auto;
+        padding: 0;
+        font-size: 1.6rem;
     }
+    .about-me__details {
+        width: 90%;
+        height: 80%;
+    }
+    .about-me__details__name {
+        font-size: 3.5rem;
+    }
+    .about-me__details__profession {
+        font-size: 2.2rem;
+    }
+
+    .project__filter {
+        padding: 0;
+    }
+
+    .project__list {
+        max-height: 482px;
+    }
+}
+
+.container {
+    display: block;
+    right: 0;
+    margin: 15px;
+    width: 400px;
+    position: fixed;
+    height: 78px;
+    z-index: 10;
+    box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.575), 0px 16px 10px -10px rgba(0, 0, 0, 0.651);
+    -webkit-box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.575), 0px 16px 10px -10px rgba(0, 0, 0, 0.651);
+    -moz-box-shadow: 0px 26px 30px -10px rgba(0, 0, 0, 0.575), 0px 16px 10px -10px rgba(0, 0, 0, 0.651);
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    padding: 0.55rem 0.65rem 0.55rem 0.75rem;
+    border-radius: 1rem;
+    min-width: 400px;
+    justify-content: space-between;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.content > .icon {
+    padding: 0.5rem;
+    margin-right: 1rem;
+    border-radius: 39% 61% 42% 58% / 50% 51% 49% 50%;
+    background-color: var(--brand-color);
+}
+
+.content > p {
+    font-size: 1.6rem;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.info {
+    background-color: var(--background);
+    border: 2px solid var(--brand-color);
+    opacity: 0.8;
+}
+
+.info > .close {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
 }

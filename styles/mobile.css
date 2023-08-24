@@ -84,6 +84,11 @@
     .project__list {
         max-height: 482px;
     }
+
+    .project__list__item__card__content {
+        pointer-events: none;
+        height: 100%;
+    }
 }
 
 .container {

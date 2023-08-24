@@ -136,13 +136,13 @@ function addProjects() {
     if (projectArray[i].test !== undefined) {
       const button = createElement('button', divContainerButton, 'card__button');
 
+      createElement('a', button, 'card__button__test', null, null, projectArray[i].test, '_blank', 'Test');
       createElement('img', button, null, './assets/icons/eye.png', 'test');
-      createElement('a', button, null, null, null, projectArray[i].test, '_blank', 'Test');
     }
 
     const button = createElement('button', divContainerButton, 'card__button');
 
-    createElement('a', button, null, null, null, projectArray[i].source, '_blank', 'Source');
+    createElement('a', button, 'card__button__source', null, null, projectArray[i].source, '_blank', 'Source');
     createElement('img', button, null, './assets/icons/source.png', 'source');
   }
 }
@@ -169,7 +169,7 @@ function createElement(elementType, parent, className = null, src = null, alt = 
   if (elementType === 'h2' || (elementType === 'a' && text !== null)) {
     const textElement = document.createTextNode(text);
     element.appendChild(textElement);
-    return;
+    return element;
   }
 
   if (elementType === 'p') {
@@ -406,3 +406,20 @@ document.getElementsByClassName("close")[0].onclick = function() {
   this.parentNode.parentNode.remove();
   return false;
 };
+
+document.addEventListener('touchstart', isMobile);
+
+function isMobile() {
+  const projects = document.getElementsByClassName('project__list__item__card__content');
+  for (const element of projects) {
+    element.style.pointerEvents = "none";
+    element.style.height = "100%";
+    const buttons = element.childNodes[2];
+    for(const button of buttons.childNodes) {
+      button.style.pointerEvents = "auto";
+      button.style.width = "100px";
+      button.childNodes[0].style.display = "block";
+    }
+  }
+}
+

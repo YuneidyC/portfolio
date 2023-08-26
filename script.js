@@ -423,3 +423,11 @@ function disableProjectCardsAnimation() {
   }
 }
 
+window.addEventListener('scroll', () => {
+  const scroll = document.getElementsByClassName('mouse_scroll')[0];
+  if (window.scrollY > window.innerHeight / 9) {
+    scroll.classList.add('mouse__scroll-text-hidden');
+  } else {
+    scroll.classList.remove('mouse__scroll-text-hidden');
+  }
+});

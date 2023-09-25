@@ -104,6 +104,7 @@ function addProjects() {
   const projects = createElement('ul', projectContainer, 'project__list__items noscroll');
 
   const projectArray = [
+    { image: './assets/image/yardSale.JPG', source: 'https://github.com/YuneidyC/Yard-Sale', test: 'https://yuneidyc.github.io/Yard-Sale/', alt: `Yard Sale`, className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
     { image: './assets/image/todo.PNG', source: 'https://github.com/YuneidyC/todo-app', test: 'https://yuneidyc.github.io/todo-app/', alt: `Todo's app`, className: 'project__list__item React JavaScript HTML CSS Git show' },
     { image: './assets/image/weather.PNG', source: 'https://github.com/YuneidyC/weatherApp', alt: 'Weather', className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
     { image: './assets/image/timer.PNG', source: 'https://github.com/YuneidyC/Timer', test: 'https://yuneidyc.github.io/Timer/', alt: 'Timer', className: 'project__list__item JavaScript HTML CSS Git show' },

@@ -104,16 +104,16 @@ function addProjects() {
   const projects = createElement('ul', projectContainer, 'project__list__items noscroll');
 
   const projectArray = [
-    { image: './assets/image/yardSale.PNG', source: 'https://github.com/YuneidyC/Yard-Sale', test: 'https://yuneidyc.github.io/Yard-Sale/', alt: `Yard Sale`, className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
-    { image: './assets/image/todo.PNG', source: 'https://github.com/YuneidyC/todo-app', test: 'https://yuneidyc.github.io/todo-app/', alt: `Todo's app`, className: 'project__list__item React JavaScript HTML CSS Git show' },
-    { image: './assets/image/weather.PNG', source: 'https://github.com/YuneidyC/weatherApp', alt: 'Weather', className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
-    { image: './assets/image/timer.PNG', source: 'https://github.com/YuneidyC/Timer', test: 'https://yuneidyc.github.io/Timer/', alt: 'Timer', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/batatabit.PNG', source: 'https://github.com/YuneidyC/Batatabit', test: 'https://yuneidyc.github.io/Batatabit/', alt: 'Batatabit', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/blog.PNG', source: 'https://github.com/YuneidyC/Portfolio-Blog', test: 'https://yuneidyc.github.io/Portfolio-Blog/', alt: 'Blog page', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/animationLand.PNG', source: 'https://github.com/YuneidyC/Animationland', test: 'https://yuneidyc.github.io/Animationland/', alt: 'Animation Land', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/restaurantMenu.PNG', source: 'https://github.com/YuneidyC/RestaurantMenu', test: 'https://yuneidyc.github.io/RestaurantMenu/', alt: 'Restaurant page', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/googleClone.PNG', source: 'https://github.com/YuneidyC/GoogleClone', test: 'https://google-clone-yuneidyc.vercel.app/', alt: 'Google clone', className: 'project__list__item JavaScript HTML CSS Git show' },
-    { image: './assets/image/ecoStore.PNG', source: 'https://github.com/YuneidyC/Eco-store', test: 'https://yuneidyc.github.io/Eco-store/', alt: 'Eco-store', className: 'project__list__item JavaScript HTML Sass Git show' },
+    { image: './assets/image/yardSale.png', source: 'https://github.com/YuneidyC/Yard-Sale', test: 'https://yuneidyc.github.io/Yard-Sale/', alt: `Yard Sale`, className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
+    { image: './assets/image/todo.png', source: 'https://github.com/YuneidyC/todo-app', test: 'https://yuneidyc.github.io/todo-app/', alt: `Todo's app`, className: 'project__list__item React JavaScript HTML CSS Git show' },
+    { image: './assets/image/weather.png', source: 'https://github.com/YuneidyC/weatherApp', alt: 'Weather', className: 'project__list__item React Webpack JavaScript HTML CSS Git show' },
+    { image: './assets/image/timer.png', source: 'https://github.com/YuneidyC/Timer', test: 'https://yuneidyc.github.io/Timer/', alt: 'Timer', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/batatabit.png', source: 'https://github.com/YuneidyC/Batatabit', test: 'https://yuneidyc.github.io/Batatabit/', alt: 'Batatabit', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/blog.png', source: 'https://github.com/YuneidyC/Portfolio-Blog', test: 'https://yuneidyc.github.io/Portfolio-Blog/', alt: 'Blog page', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/animationLand.png', source: 'https://github.com/YuneidyC/Animationland', test: 'https://yuneidyc.github.io/Animationland/', alt: 'Animation Land', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/restaurantMenu.png', source: 'https://github.com/YuneidyC/RestaurantMenu', test: 'https://yuneidyc.github.io/RestaurantMenu/', alt: 'Restaurant page', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/googleClone.png', source: 'https://github.com/YuneidyC/GoogleClone', test: 'https://google-clone-yuneidyc.vercel.app/', alt: 'Google clone', className: 'project__list__item JavaScript HTML CSS Git show' },
+    { image: './assets/image/ecoStore.png', source: 'https://github.com/YuneidyC/Eco-store', test: 'https://yuneidyc.github.io/Eco-store/', alt: 'Eco-store', className: 'project__list__item JavaScript HTML Sass Git show' },
   ];
 
   for (let i = 0; i <= projectArray.length - 1; i++) {

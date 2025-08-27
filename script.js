@@ -119,6 +119,7 @@ function addProjects() {
         { image: './assets/image/theOdinProject_LandingPage.png', source: 'https://github.com/YuneidyC/TheOdinProject-LandingPage', test: 'https://yuneidyc.github.io/TheOdinProject-LandingPage/', alt: 'Landing Page', className: 'project__list__item HTML CSS Git show' },
         { image: './assets/image/theOdinProject_rockPaperAndScissors.png', source: 'https://github.com/YuneidyC/TheOdinProject-RockPaperScissors', test: 'https://yuneidyc.github.io/TheOdinProject-RockPaperScissors/', alt: 'Rock Paper and Scissors', className: 'project__list__item JavaScript HTML CSS Git show' },
         { image: './assets/image/theOdinProject_Library.png', source: 'https://github.com/YuneidyC/TheOdinProject-Library', test: 'https://yuneidyc.github.io/TheOdinProject-Library/', alt: 'Library', className: 'project__list__item JavaScript HTML CSS Git show' },
+        { image: './assets/image/theOdinProject_SignUpForm.png', source: 'https://github.com/YuneidyC/TheOdinProject-SignUpForm', test: 'https://yuneidyc.github.io/TheOdinProject-SignUpForm/', alt: 'Sign up Form', className: 'project__list__item HTML CSS Git show' },
     ];
 
     for (let i = 0; i <= projectArray.length - 1; i++) {

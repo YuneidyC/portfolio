@@ -115,6 +115,7 @@ function addProjects() {
         { image: './assets/image/googleClone.png', source: 'https://github.com/YuneidyC/GoogleClone', test: 'https://google-clone-yuneidyc.vercel.app/', alt: 'Google clone', className: 'project__list__item JavaScript HTML CSS Git show' },
         { image: './assets/image/ecoStore.png', source: 'https://github.com/YuneidyC/Eco-store', test: 'https://yuneidyc.github.io/Eco-store/', alt: 'Eco-store', className: 'project__list__item JavaScript HTML Sass Git show' },
         { image: './assets/image/theOdinProject-MexicanRestaurant.png', source: 'https://github.com/YuneidyC/TheOdinProject-RestaurantPage', test: 'https://yuneidyc.github.io/TheOdinProject-RestaurantPage/', alt: 'Mexican-Restaurant', className: 'project__list__item JavaScript HTML CSS Git show' },
+        { image: './assets/image/theOdinProject_EtchASketch.png', source: 'https://github.com/YuneidyC/TheOdinProject-EtchASketch', test: 'https://yuneidyc.github.io/TheOdinProject-EtchASketch/', alt: 'Etch A Sketch', className: 'project__list__item JavaScript HTML CSS Git show' },
     ];
 
     for (let i = 0; i <= projectArray.length - 1; i++) {
